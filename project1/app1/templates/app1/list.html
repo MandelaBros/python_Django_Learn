@@ -3,7 +3,7 @@
  
 <head>
     <meta charset="utf-8" />
-    <title>Member表</title>
+    <title>青空文庫一覧</title>
 </head>
  
 <body>
@@ -11,15 +11,13 @@
     <p>{{ message }}</p>
     <table border="1">
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>age</th>
+            <th>著者</th>
+            <th>作品</th>
         </tr>
-        {% for member in data %}
+        {% for dat in data %}
         <tr>
-            <td>{{ member.id }}</td>
-            <td>{{ member.name }}</td>
-            <td>{{ member.age }}</td>
+            <td>{{ dat.author }}</td>
+            <td>{{ dat.book }}</td>
         </tr>
         {% endfor %}
     </table>

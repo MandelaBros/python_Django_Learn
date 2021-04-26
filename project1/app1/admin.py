@@ -1,6 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Member
+from .models import Aozora, Iseki
  
-admin.site.register(Member)
+admin.site.register(Aozora)
+
+admin.site.register(Iseki)

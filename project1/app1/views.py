@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Member
+from .models import Aozora
 # Create your views here.
 
 def index(request):
@@ -7,6 +7,6 @@ def index(request):
     return render(request, 'app1/index.html', param)
 
 def list(request):
-    data = Member.objects.all()
-    params = {'message': 'メンバーの一覧', 'data': data}
+    data = Aozora.objects.all()
+    params = {'message': '青空文庫一覧', 'data': data}
     return render(request, 'app1/list.html', params)
