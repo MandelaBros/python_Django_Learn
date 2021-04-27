@@ -1,0 +1,12 @@
+{% extends './comon.html' %}
+ 
+{% block app %}
+    <h1>ユーザ登録</h1>
+ 
+    <form action='{% url "showUsers" %}' method='post' class='form'>
+        <!-- 登録フォームを表示 -->
+        {{ aozoraForm }}
+        <button type='submit' class='btn btn-outline-primary'>登録</button>
+        <a href='{% url "showUsers" %}' class='btn btn-outline-secondary'>戻る</a>
+    </form>
+{% endblock %}
