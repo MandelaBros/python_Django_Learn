@@ -1,12 +1,13 @@
-{% extends './comon.html' %}
+{% extends './common.html' %}
  
-{% block app %}
+{% block body %}
     <h1>ユーザ登録</h1>
  
-    <form action='{% url "showUsers" %}' method='post' class='form'>
+    <form action='{% url "addAozora" %}' method='post' class='form'>
         <!-- 登録フォームを表示 -->
+        {% csrf_token %}
         {{ aozoraForm }}
         <button type='submit' class='btn btn-outline-primary'>登録</button>
-        <a href='{% url "showUsers" %}' class='btn btn-outline-secondary'>戻る</a>
+        <a href='{% url "showCreateAozoraForm" %}' class='btn btn-outline-secondary'>戻る</a>
     </form>
 {% endblock %}

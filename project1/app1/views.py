@@ -2,8 +2,7 @@ from django.shortcuts import render
 from .models import Aozora
 import csv
 from django.http import HttpResponse
-
-from .modules.forms import aozoraForm
+from . forms import aozoraForm
 # Create your views here.
 
 def index(request):
@@ -34,10 +33,29 @@ def csvDownLoad(request):
 def showCreateAozoraForm(request):
     #フォームを変数にセット
     form = aozoraForm()
- 
+
     context = {
         'aozoraForm':form,
     }
  
     #detail.htmlへデータを渡す
+    return render(request, 'app1/create.html',context)
+
+def addAozora(request):
+    #リクエストがPOSTの場合
+    if request.method == 'POST':
+        #リクエストをもとにフォームをインスタンス化
+        aoForm = aozoraForm(request.POST)
+        if aoForm.is_valid():
+            aoForm.save()
+ 
+    #登録後、全件データを抽出
+    aozoraDat = Aozora.objects.all()
+    context = {
+        'msg': '現在の賢生',
+        'aozoraDat': aozoraDat,
+        'count':aozoraDat.count,
+    }
+
+        #user.htmlへデータを渡す
     return render(request, 'app1/create.html',context)

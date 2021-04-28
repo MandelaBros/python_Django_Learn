@@ -1,6 +1,6 @@
 from django import forms
 from . models import Aozora
- 
+
 class aozoraForm(forms.ModelForm):
     class Meta:
         model = Aozora
